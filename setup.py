@@ -15,7 +15,10 @@ setup(
     author_email="info@kba-it.com",
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    url="https://github.com/KBA-IT/hcp-packer",
+    url='https://kba-it.com',
+    project_urls={
+        'Source': 'https://github.com/KBA-IT/hcp-packer',
+    },
     keywords="Hashicorp Packer",
     install_requires=[],
 )
