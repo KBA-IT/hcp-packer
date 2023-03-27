@@ -1,4 +1,4 @@
-# HCP-PAcker API Client
+# HCP-Packer API Client
 
 ## Installation
 
