@@ -9,7 +9,7 @@ setup(
     description='HCP Packer API Client',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='0.0.6',
+    version='0.0.7',
     license='MIT',
     author="Billy Austin",
     author_email="billy@kba-it.com",
