@@ -24,3 +24,6 @@ jobs:
       - name: Push to PyPi
         run: |
           twine upload dist/*
+        env:
+          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
