@@ -21,7 +21,8 @@ class PyPacker():
         if self.client_id is None:
             print('Either provide a client ID or set HCP_CLIENT_ID')
             sys.exit(1)
-        self.client_secret = client_secret if client_secret else os.getenv("HCP_CLIENT_SECRET")
+        self.client_secret = client_secret if client_secret else \
+            os.getenv("HCP_CLIENT_SECRET")
         if self.client_secret is None:
             print('Either provide a client secret or set HCP_CLIENT_SECRET')
             sys.exit(1)
@@ -67,7 +68,8 @@ class PyPacker():
         params["location.region.provider"] = provider if provider else 'null'
         params["location.region.region"] = region
         url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/builds/{build_id}"
-        req = requests.get(url=url, headers=self.headers, timeout=self.timeout, params=params)
+        req = requests.get(url=url, headers=self.headers,\
+                           timeout=self.timeout, params=params)
         if req.status_code != 200:
             print(f"Error: {req.status_code} {req.reason}")
             sys.exit(1)
@@ -85,7 +87,8 @@ class PyPacker():
         params["location.region.region"] = region
         params["bucket_id"] = bucket_id
         url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/images/{bucket}"
-        req = requests.get(url=url, headers=self.headers, timeout=self.timeout, params=params)
+        req = requests.get(url=url, headers=self.headers,\
+                           timeout=self.timeout, params=params)
         if req.status_code != 200:
             print(f"Error: {req.status_code} {req.reason}")
             sys.exit(1)
