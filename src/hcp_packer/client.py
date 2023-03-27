@@ -49,11 +49,11 @@ class PyPacker():
             "client_id": self.client_id,
             "client_secret": self.client_secret
         }
-        r = requests.post(self.auth_url, json=auth_data, timeout=self.timeout)
-        if r.status_code != 200:
-            print(f"Error: {r.reason}")
+        req = requests.post(self.auth_url, json=auth_data, timeout=self.timeout)
+        if req.status_code != 200:
+            print(f"Error: {req.reason}")
             sys.exit(1)
-        self.bearer = r.json()
+        self.bearer = req.json()
         self.set_headers()
 
     def set_headers(self):
@@ -64,9 +64,9 @@ class PyPacker():
 
     def get_build(self, build_id=None, region=None, provider=None):
         """Get Build API call"""
-        params = dict()
+        params = {}
         params["location.region.provider"] = provider if provider else 'null'
-        params["location.region.region"] = region
+        params["location.region.region"] = region if region else 'null'
         url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/builds/{build_id}"
         req = requests.get(url=url, headers=self.headers,\
                            timeout=self.timeout, params=params)
@@ -75,10 +75,33 @@ class PyPacker():
             sys.exit(1)
         return req.json()
 
-    # def delete_build
-    # def update_build
-    # def list_buckets
-    # def create_bucket
+    def delete_build(self, build_id=None, region=None, provider=None):
+        """Delete Build API call"""
+        params = {}
+        params["location.region.provider"] = provider if provider else 'null'
+        params["location.region.region"] = region if region else 'null'
+        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/builds/{build_id}"
+        req = requests.delete(url=url, headers=self.headers,\
+                              timeout=self.timeout, params=params)
+        if req.status_code != 200:
+            print(f"Error: {req.status_code} {req.reason}")
+            sys.exit(1)
+        return req.json()
+
+    def update_build(self):
+        """Update Build API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def list_buckets(self):
+        """List Buckets API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def create_bucket(self):
+        """Create Bucket API Call"""
+        print("API route not implemented in this client yet")
+        return ""
 
     def get_bucket(self, bucket=None, bucket_id=None, region=None, provider=None):
         """Get Bucket API call"""
@@ -94,23 +117,101 @@ class PyPacker():
             sys.exit(1)
         return req.json()
 
-    # def delete_bucket
-    # def update_bucket
-    # def list_bucket_ancestry
-    # def list_channels
-    # def create_channel
-    # def get_channel
-    # def delete_channel
-    # def update_channel
-    # def list_channel_history
-    # def get_iteration
-    # def list_iterations
-    # def create_iteration
-    # def create_build
-    # def list_builds
-    # def delete_iteration
-    # def update_iteration
-    # def get_registry
-    # def create_registry
-    # def delete_registry
-    # def update_registry
+    def delete_bucket(self):
+        """Delete Bucket API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def update_bucket(self):
+        """Update Bucket API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def list_bucket_ancestry(self):
+        """List Bucket Ancestry API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def list_channels(self):
+        """List Channels API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+    def create_channel(self):
+        """Create Channel API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def get_channel(self):
+        """Get Channel API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def delete_channel(self):
+        """Delete Channel API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def update_channel(self):
+        """Update Channel API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def list_channel_history(self):
+        """List Channel History API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def get_iteration(self):
+        """Get Iteration API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def list_iterations(self):
+        """List Iterations API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def create_iteration(self):
+        """Create Iteration API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def create_build(self):
+        """Create Build API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def list_builds(self):
+        """List Builds API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def delete_iteration(self):
+        """Delete Builds API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def update_iteration(self):
+        """Update Iteration API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def get_registry(self):
+        """Get Registry API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def create_registry(self):
+        """Create Registry API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def delete_registry(self):
+        """Delete Registry API Call"""
+        print("API route not implemented in this client yet")
+        return ""
+
+    def update_registry(self):
+        """Update Registry API Call"""
+        print("API route not implemented in this client yet")
+        return ""
