@@ -40,6 +40,7 @@ class PyPacker():
         self.bearer = None
         self.headers = None
         self.api_path = f"{self.hcp_url}/packer/2021-04-30/organizations"
+        self.proj_path = f"{self.proj_path}/projects/{self.proj_id}"
 
     def authenticate(self):
         """Obtain bearer token"""
@@ -67,7 +68,7 @@ class PyPacker():
         params = {}
         params["location.region.provider"] = provider if provider else 'null'
         params["location.region.region"] = region if region else 'null'
-        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/builds/{build_id}"
+        url = f"{self.proj_path}/builds/{build_id}"
         req = requests.get(url=url, headers=self.headers,\
                            timeout=self.timeout, params=params)
         if req.status_code != 200:
@@ -80,7 +81,7 @@ class PyPacker():
         params = {}
         params["location.region.provider"] = provider if provider else 'null'
         params["location.region.region"] = region if region else 'null'
-        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/builds/{build_id}"
+        url = f"{self.proj_path}/builds/{build_id}"
         req = requests.delete(url=url, headers=self.headers,\
                               timeout=self.timeout, params=params)
         if req.status_code != 200:
@@ -109,7 +110,7 @@ class PyPacker():
         params["location.region.provider"] = provider
         params["location.region.region"] = region
         params["bucket_id"] = bucket_id
-        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/images/{bucket}"
+        url = f"{self.proj_path}/images/{bucket}"
         req = requests.get(url=url, headers=self.headers,\
                            timeout=self.timeout, params=params)
         if req.status_code != 200:
@@ -137,8 +138,7 @@ class PyPacker():
         params = {}
         params["location.region.provider"] = provider
         params["location.region.region"] = region
-        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/images/{bucket}\
-            /channels"
+        url = f"{self.proj_path}/images/{bucket}/channels"
         req = requests.get(url=url, headers=self.headers,\
                            timeout=self.timeout, params=params)
         if req.status_code != 200:
@@ -156,8 +156,7 @@ class PyPacker():
         params = {}
         params["location.region.provider"] = provider
         params["location.region.region"] = region
-        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/images/{bucket}\
-            /channels/{channel}"
+        url = f"{self.proj_path}/images/{bucket}/channels/{channel}"
         req = requests.get(url=url, headers=self.headers,\
                            timeout=self.timeout, params=params)
         if req.status_code != 200:
@@ -220,7 +219,7 @@ class PyPacker():
         params = {}
         params["location.region.provider"] = provider
         params["location.region.region"] = region
-        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/registry"
+        url = f"{self.proj_path}/registry"
         req = requests.get(url=url, headers=self.headers,\
                            timeout=self.timeout, params=params)
         if req.status_code != 200:
