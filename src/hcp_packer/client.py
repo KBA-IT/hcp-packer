@@ -40,7 +40,7 @@ class PyPacker():
         self.bearer = None
         self.headers = None
         self.api_path = f"{self.hcp_url}/packer/2021-04-30/organizations"
-        self.proj_path = f"{self.api_path}/projects/{self.proj_id}"
+        self.proj_path = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}"
 
     def authenticate(self):
         """Obtain bearer token"""
