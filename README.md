@@ -22,9 +22,7 @@ The following route methods are still to be created - feel free to open an PR wi
 * Delete Bucket
 * Update Bucket
 * List Bucket Ancestry
-* List Channels
 * Create Channel
-* Get Channel
 * Delete Channel
 * Update Channel
 * List Channel History
@@ -35,7 +33,6 @@ The following route methods are still to be created - feel free to open an PR wi
 * List Builds
 * Delete Builds
 * Update Iteration
-* Get Registry
 * Create Registry
 * Delete Registry
 * Update Registry
