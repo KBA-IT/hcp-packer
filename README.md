@@ -1,5 +1,6 @@
 ![Workflow Status](https://github.com/KBA-IT/hcp-packer/actions/workflows/build_and_deploy.yml/badge.svg?branch=develop)
 [![PyPI version](https://badge.fury.io/py/HCP-Packer.svg)](https://badge.fury.io/py/HCP-Packer)
+![PyPI downloads](https://img.shields.io/pypi/dm/hcp-packer)
 
 # HCP-Packer API Client
 
