@@ -105,7 +105,7 @@ class PyPacker():
 
     def get_bucket(self, bucket=None, bucket_id=None, region=None, provider=None):
         """Get Bucket API call"""
-        params = dict()
+        params = {}
         params["location.region.provider"] = provider
         params["location.region.region"] = region
         params["bucket_id"] = bucket_id
@@ -132,19 +132,38 @@ class PyPacker():
         print("API route not implemented in this client yet")
         return ""
 
-    def list_channels(self):
+    def list_channels(self, bucket=None, region=None, provider=None):
         """List Channels API Call"""
-        print("API route not implemented in this client yet")
-        return ""
+        params = {}
+        params["location.region.provider"] = provider
+        params["location.region.region"] = region
+        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/images/{bucket}\
+            /channels"
+        req = requests.get(url=url, headers=self.headers,\
+                           timeout=self.timeout, params=params)
+        if req.status_code != 200:
+            print(f"Error: {req.status_code} {req.reason}")
+            sys.exit(1)
+        return req.json()
+
     def create_channel(self):
         """Create Channel API Call"""
         print("API route not implemented in this client yet")
         return ""
 
-    def get_channel(self):
+    def get_channel(self, bucket=None, channel=None, region=None, provider=None):
         """Get Channel API Call"""
-        print("API route not implemented in this client yet")
-        return ""
+        params = {}
+        params["location.region.provider"] = provider
+        params["location.region.region"] = region
+        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/images/{bucket}\
+            /channels/{channel}"
+        req = requests.get(url=url, headers=self.headers,\
+                           timeout=self.timeout, params=params)
+        if req.status_code != 200:
+            print(f"Error: {req.status_code} {req.reason}")
+            sys.exit(1)
+        return req.json()
 
     def delete_channel(self):
         """Delete Channel API Call"""
@@ -196,10 +215,18 @@ class PyPacker():
         print("API route not implemented in this client yet")
         return ""
 
-    def get_registry(self):
+    def get_registry(self, region=None, provider=None):
         """Get Registry API Call"""
-        print("API route not implemented in this client yet")
-        return ""
+        params = {}
+        params["location.region.provider"] = provider
+        params["location.region.region"] = region
+        url = f"{self.api_path}/{self.org_id}/projects/{self.proj_id}/registry"
+        req = requests.get(url=url, headers=self.headers,\
+                           timeout=self.timeout, params=params)
+        if req.status_code != 200:
+            print(f"Error: {req.status_code} {req.reason}")
+            sys.exit(1)
+        return req.json()
 
     def create_registry(self):
         """Create Registry API Call"""
