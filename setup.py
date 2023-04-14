@@ -20,5 +20,7 @@ setup(
         'Source': 'https://github.com/KBA-IT/hcp-packer',
     },
     keywords="Hashicorp Packer",
-    install_requires=[],
+    install_requires=[
+        'requests'
+    ],
 )
