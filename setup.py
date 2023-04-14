@@ -9,7 +9,7 @@ setup(
     description='HCP Packer API Client',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='0.0.12',
+    version='0.0.13',
     license='MIT',
     author="KBA IT",
     author_email="info@kba-it.com",
@@ -20,5 +20,7 @@ setup(
         'Source': 'https://github.com/KBA-IT/hcp-packer',
     },
     keywords="Hashicorp Packer",
-    install_requires=[],
+    install_requires=[
+        'requests'
+    ],
 )
